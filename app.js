@@ -4,7 +4,6 @@ const app = express()
 const sqlite3 = require('sqlite3');
 const path = require('path')
 
-const PORT = 3000
 const dbPath = path.join(__dirname, 'database.db');
 
 let db = new sqlite3.Database(dbPath, (err)=>{
@@ -91,9 +90,7 @@ app.delete('/tasks/:id', (request, responce)=>{
     })
 })
 
-app.listen(PORT, ()=>{
-    console.log(`Сервер запущен на порту ${PORT}`)
-})
+app.listen(()=>{ console.log(`Сервер запущен на https://todoserver-37fr.onrender.com`) })
 
 //Принудительное закрытие соединения с БД при завершении процесса
 process.on('SIGINT', () => {
